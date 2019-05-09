@@ -5,12 +5,16 @@
 }
 
 <h1>Index</h1>
-
+<form>
+<select asp-for="Vegetarian" asp-items="@Model.Sl"></select>
+    <input type="submit" value="Search"/>
+</form>
 <table class="table-bordered col-6">
 <thead>
     <tr>
         <th scope="col">Name</th>
         <th scope="col">Description</th>
+        <th scope="col">Vegetarian</th>
         <th scope="col"></th>
     </tr>
 </thead>
@@ -19,7 +23,14 @@
     {
         <tr>
             <td>@item.Name</td>
-            <td>@item.ShortDescription()</td>
+            <td>@item.ShortDescription</td>
+            <td>@if (item.Vegetarian)
+            {
+                <p>Yes</p>
+            }
+            else {
+                <p>No</p>
+            }</td>
             <td><a asp-page="/Details" asp-route-id="@item.Id">Details</a></td>
 
         </tr>

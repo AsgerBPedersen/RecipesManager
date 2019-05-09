@@ -27,7 +27,7 @@ namespace RecipesManager.Pages.Recipes
         public void OnGet()
         {
             Ingredients = new SelectList(ir.GetAllIngredients(), "Id", "Name");
-            Recipes = rr.GetAllRecipes();
+            Recipes = rr.GetAllRecipesWithIngredients();
         }
 
         public IActionResult OnPost()

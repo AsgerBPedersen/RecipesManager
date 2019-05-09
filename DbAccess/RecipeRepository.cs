@@ -11,7 +11,11 @@ namespace DbAccess
     {
         public List<Recipe> GetAllRecipesWithIngredients()
         {
-            throw new NotImplementedException();
+            List<Recipe> recipes = GetAllRecipes();
+            IngredientRepository ir = new IngredientRepository();
+            List<Ingredient> ingredients = ir.GetAllIngredientsFull();
+            recipes.ForEach(r => r.Ingredients.AddRange(ingredients.Where(i => i.RecipeId == r.Id)));
+            return recipes;
         }
 
         public List<Recipe> GetAllRecipes()
