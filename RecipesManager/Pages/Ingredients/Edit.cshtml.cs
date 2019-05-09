@@ -32,7 +32,7 @@ namespace RecipesManager.Pages.Ingredients
         {
             if (ModelState.IsValid)
             {
-                ir.NewIngredient(Ingredient);
+                ir.UpdateIngredient(Ingredient);
 
                 return Redirect("/ingredients/index");
             }

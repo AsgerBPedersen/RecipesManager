@@ -5,11 +5,12 @@
 }
 
 <h1>Index</h1>
-<form>
-<select asp-for="Vegetarian" asp-items="@Model.Sl"></select>
-    <input type="submit" value="Search"/>
-</form>
-<table class="table-bordered col-6">
+<div class="row col-6"><form>
+    <select class="form-control col" asp-for="Vegetarian" asp-items="@Model.Sl"></select>
+    <input class="btn btn-secondary col mt-3" type="submit" value="Search" />
+</form></div>
+
+<table class="table-bordered col-6 mt-3">
 <thead>
     <tr>
         <th scope="col">Name</th>
