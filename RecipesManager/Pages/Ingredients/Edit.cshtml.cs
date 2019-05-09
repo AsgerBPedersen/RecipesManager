@@ -18,9 +18,14 @@ namespace RecipesManager.Pages.Ingredients
         {
             ir = new IngredientRepository();
         }
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
             Ingredient = ir.GetIngredient(id);
+            if (Ingredient == null)
+            {
+               return RedirectToPage("/Errors/default", new { errorCode = 500 });
+            }
+            return Page();
         }
 
         public IActionResult OnPost()

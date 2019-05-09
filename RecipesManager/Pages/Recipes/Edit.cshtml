@@ -6,7 +6,12 @@
 }
 
 <h1>Edit recipe</h1>
-
+<div class="form-group">
+    <form method="post" asp-page-handler="AddIngredients" asp-route-recipeId="@Model.Recipe.Id">
+        <select class="form-control col-4" name="selectedIngredients" asp-items="@Model.IngredientChoices" multiple="multiple"></select>
+        <input class="btn btn-secondary" type="submit" value="Add Ingredients" />
+    </form>
+</div>
 <div class="form-group">
     <form method="post">
         <input class="form-control" asp-for="Recipe.Id" type="hidden" value="@Model.Recipe.Id" />
@@ -19,7 +24,7 @@
         <br />
         @for (int i = 0; i < Model.Recipe.Ingredients.Count; i++)
         {
-            <h3>@Model.Recipe.Ingredients[i].Name</h3><br>
+            <h3>@Model.Recipe.Ingredients[i].Name</h3><a asp-page="/recipes/edit" asp-route-id="@Model.Recipe.Ingredients[i].Id" asp-route-recipeId="@Model.Recipe.Id" asp-page-handler="Delete">Delete</a>  <br>
             <input type="hidden" asp-for="@Model.Recipe.Ingredients[i].Id" value="@Model.Recipe.Ingredients[i].Id" />
             <input type="hidden" asp-for="@Model.Recipe.Ingredients[i].Name" value="@Model.Recipe.Ingredients[i].Name" />
             <label asp-for="@Model.Recipe.Ingredients[i].Amount"></label><br />

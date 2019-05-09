@@ -1,4 +1,6 @@
-﻿use RecipeManager;
+﻿Create Database RecipeManager;
+
+use RecipeManager;
 
 create table Recipes(
 Id int primary key identity(1,1),

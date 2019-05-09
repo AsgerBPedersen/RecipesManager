@@ -47,6 +47,11 @@ namespace DbAccess
         public Ingredient GetIngredient(int id)
         {
             DataTable dt = ExecuteQuery($"select * from Ingredients where Id = {id};");
+            //Returner null hvis querying ikke har nogen rows. 
+            if (dt.Rows.Count == 0)
+            {
+                return null;
+            }
             return new Ingredient
             {
                 Id = (int)dt.Rows[0]["Id"],

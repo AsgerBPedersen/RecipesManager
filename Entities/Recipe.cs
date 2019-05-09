@@ -21,15 +21,22 @@ namespace Entities
         public string ShortDescription 
         {
             get {
-                    if(Description.Length < 50)
-                        {
-                        return Description;
-                        }
-                    else
-                        {
-                        return Description.Substring(0, 48) + "...";
-                        };
+                if (Description == null)
+                {
+                    return "";
                 }
+                else
+                {
+                    if (Description.Length < 50)
+                    {
+                        return Description;
+                    }
+                    else
+                    {
+                        return Description.Substring(0, 48) + "...";
+                    };
+                }
+            }
         }
 
         public bool Vegetarian

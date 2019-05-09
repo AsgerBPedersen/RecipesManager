@@ -37,6 +37,7 @@ namespace DbAccess
 
         public int DeleteRecipe(int id)
         {
+            //fungere nu med cascade delete
             return ExecuteNonQuery($"Delete from Recipes where Id = {id}");
         }
 
@@ -45,7 +46,10 @@ namespace DbAccess
             IngredientRepository ir = new IngredientRepository();
             List<Ingredient> ingredients = ir.GetAllIngredientsFull();
             DataTable dt = ExecuteQuery($"select * from Recipes where Id = {id};");
-
+            if (dt.Rows.Count == 0)
+            {
+                return null;
+            }
             return new Recipe
             {
                 Id = (int)dt.Rows[0]["Id"],
