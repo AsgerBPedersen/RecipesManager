@@ -25,8 +25,14 @@ namespace RecipesManager.Pages.Ingredients
 
         public IActionResult OnPost()
         {
-            ir.UpdateIngredient(Ingredient);
-            return Redirect("/ingredients/index");
+            if (ModelState.IsValid)
+            {
+                ir.NewIngredient(Ingredient);
+
+                return Redirect("/ingredients/index");
+            }
+            
+            return Page();
         }
     }
 }

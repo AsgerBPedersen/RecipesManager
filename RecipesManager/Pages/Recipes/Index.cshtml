@@ -7,9 +7,11 @@
 <h1>Recipes</h1>
 <div class="form-group">
     <form method="post">
-        <label asp-for="Recipe.Name"></label>
+        <label asp-for="Recipe.Name"></label><br />
+        <span asp-validation-for="Recipe.Name"></span>
         <input class="form-control" asp-for="Recipe.Name" />
-        <label asp-for="Recipe.Description"></label>
+        <label asp-for="Recipe.Description"></label><br />
+        <span asp-validation-for="Recipe.Description"></span>
         <input class="form-control" asp-for="Recipe.Description" />
         <label asp-for="Recipe.Ingredients"></label>
         <select class="form-control col-4" name="selectedIngredients" asp-items="@Model.Ingredients" multiple="multiple"></select>

@@ -36,8 +36,16 @@ namespace RecipesManager.Pages.Recipes
 
             //laver nye ingredients i Recipes fra de valgte values i selectlisten
             selectedIngredients.ForEach(i => Recipe.Ingredients.Add(new Ingredient { Id = int.Parse(i) }));
-            int newId = rr.NewRecipe(Recipe);
-            return RedirectToPage("/Recipes/edit", new { id = newId });
+
+            if (ModelState.IsValid)
+            {
+                int newId = rr.NewRecipe(Recipe);
+                return RedirectToPage("/Recipes/edit", new { id = newId });
+
+            }
+            Ingredients = new SelectList(ir.GetAllIngredients(), "Id", "Name");
+            Recipes = rr.GetAllRecipes();
+            return Page();
         }
 
         public IActionResult OnGetDelete(int id)

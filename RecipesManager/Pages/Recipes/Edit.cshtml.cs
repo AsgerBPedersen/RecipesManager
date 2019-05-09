@@ -28,8 +28,12 @@ namespace RecipesManager.Pages.Recipes
 
         public IActionResult OnPost()
         {
-            int newId = rr.UpdateRecipe(Recipe);
-            return RedirectToPage("/Recipes/edit", new { id = newId });
+            if (ModelState.IsValid)
+            {
+                int newId = rr.UpdateRecipe(Recipe);
+                return RedirectToPage("/Recipes/edit", new { id = newId });
+            }
+            return Page();
         }
     }
 }

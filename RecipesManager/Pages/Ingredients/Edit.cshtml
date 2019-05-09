@@ -2,18 +2,19 @@
 @model RecipesManager.Pages.Ingredients.EditModel
 @using Entities
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Ingredient - Edit";
 }
 
 <h1>Edit</h1>
 <div class="form-group">
     <form method="post">
         <input asp-for="Ingredient.Id" type="hidden" value="@Model.Ingredient.Id" />
-        <label asp-for="Ingredient.Name"></label>
-         <input asp-for="Ingredient.Name" value="@Model.Ingredient.Name" />
+        <label asp-for="Ingredient.Name"></label><br />
+        <span asp-validation-for="Ingredient.Name"></span>
+        <input asp-for="Ingredient.Name" value="@Model.Ingredient.Name" />
         <label asp-for="Ingredient.Type"></label>
         <select asp-for="Ingredient.Type" value="@Model.Ingredient.Name" asp-items="Html.GetEnumSelectList<IngredientType>()"></select>
         <input type="submit" value="Edit" class="btn btn-secondary" />
-</form>
+    </form>
 </div>
 
