@@ -25,7 +25,7 @@ namespace RecipesManager
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStatusCodePagesWithReExecute("/errors/default/{0}");
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
         }

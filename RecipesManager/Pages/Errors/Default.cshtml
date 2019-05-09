@@ -1,0 +1,11 @@
+﻿@page "{errorCode:int}"
+@{ int errorCode = int.Parse((string)RouteData.Values["errorCode"]);}
+
+    @if (errorCode == 404)
+    {
+        <h1>Page not found</h1>
+    }
+    else
+    {
+        <h1>Error @errorCode</h1>
+    }

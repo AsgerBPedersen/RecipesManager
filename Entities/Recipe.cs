@@ -21,5 +21,17 @@ namespace Entities
             Ingredients = new List<Ingredient>();
         }
 
+        public string ShortDescription()
+        {
+            if (Description.Length < 50)
+            {
+                return Description;
+            }
+            else
+            {
+                return Description.Substring(0, 48) + "...";
+            }
+        }
+
     }
 }

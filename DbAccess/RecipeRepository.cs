@@ -57,7 +57,10 @@ namespace DbAccess
         {
             IngredientsInRecipeRepository iirr = new IngredientsInRecipeRepository();
             int newRecipeId = ExecuteNonQueryScalar($"Insert into Recipes (Name, Description) output inserted.Id values('{recipe.Name}','{recipe.Description}');");
-            iirr.AddNewIngredientsInRecipe(recipe.Ingredients, newRecipeId);
+            if (recipe.Ingredients.Count != 0)
+            {
+                iirr.AddNewIngredientsInRecipe(recipe.Ingredients, newRecipeId);
+            }
             return newRecipeId;
         }
 

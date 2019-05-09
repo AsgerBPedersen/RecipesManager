@@ -1,0 +1,30 @@
+﻿@page
+@model RecipesManager.Pages.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.Recipe.Name</h1><br />
+<p>@Model.Recipe.Description</p>
+<hr />
+<h2>Ingredients</h2>
+<table class="table-bordered col-6">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Recipe.Ingredients)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Type.ToString()</td>
+                <td>@item.Amount @item.Unit</td>
+
+            </tr>
+        }
+    </tbody>
+</table>

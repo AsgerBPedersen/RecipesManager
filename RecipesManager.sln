@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipesManager", "RecipesManager\RecipesManager.csproj", "{8FEB9771-4CFD-4F5F-8FA6-92C1126E6802}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipesManager", "RecipesManager\RecipesManager.csproj", "{8FEB9771-4CFD-4F5F-8FA6-92C1126E6802}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbAccess", "DbAccess\DbAccess.csproj", "{325F0631-F02C-4C07-846D-6C5DC083451E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbAccess", "DbAccess\DbAccess.csproj", "{325F0631-F02C-4C07-846D-6C5DC083451E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{893F1287-F791-4E74-BC6D-841DC7278701}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{893F1287-F791-4E74-BC6D-841DC7278701}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

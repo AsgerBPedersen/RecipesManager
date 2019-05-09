@@ -9,17 +9,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RecipesManager.Pages
 {
-    public class IndexModel : PageModel
+    public class DetailsModel : PageModel
     {
-        public List<Recipe> Recipes { get; set; }
+        public Recipe Recipe { get; set; }
         private readonly RecipeRepository rr;
-        public IndexModel()
+        public DetailsModel()
         {
             rr = new RecipeRepository();
         }
-        public void OnGet()
+        public void OnGet(int id)
         {
-            Recipes = rr.GetAllRecipes();
+            Recipe = rr.GetRecipe(id);
         }
     }
 }
