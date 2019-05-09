@@ -9,7 +9,7 @@ namespace Entities
     {
         public int Id { get; set; }
         public int RecipeId { get; set; }
-        [RegularExpression("[a-zA-Z ]+", ErrorMessage = "Only letters please")]
+        [RegularExpression("[a-zA-ZÆØÅæøå ]+", ErrorMessage = "Only letters please")]
         [MaxLength(50, ErrorMessage = "Maximum 50 characters")]
         [Required]
         public string Name { get; set; }
