@@ -53,6 +53,13 @@ namespace RecipesManager.Pages.Recipes
             return RedirectToPage("/Recipes/edit", new { id = recipeId });
         }
 
+        public void OnPostSearch(int id)
+        {
+            string search = Request.Form["search"];
+            Recipe = rr.GetRecipe(id);
+            IngredientChoices = new SelectList((ir.GetAllIngredients().Where(i => !Recipe.Ingredients.Any(r => r.Id == i.Id))).Where(i => i.Name.ToLower().Contains(search.ToLower())), "Id", "Name");
+        }
+
         public IActionResult OnPostAddIngredients(int recipeId)
         {
             //laver en liste af ingredients ud fra dem der er valgt i select listen og tilføjer dem til databasen
