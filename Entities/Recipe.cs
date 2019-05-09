@@ -12,7 +12,7 @@ namespace Entities
         [MaxLength(50, ErrorMessage = "Maximum 50 characters please")]
         [Required]
         public string Name { get; set; }
-        [RegularExpression("[a-zA-Z ,.!?-]+", ErrorMessage = "Only letters please")]
+        [RegularExpression("[a-zA-ZÆØÅæøå ,.!?-]+", ErrorMessage = "Only letters please")]
         [MinLength(15, ErrorMessage = "Please provide a 15 character or longer description")]
         [Required]
         public string Description { get; set; }

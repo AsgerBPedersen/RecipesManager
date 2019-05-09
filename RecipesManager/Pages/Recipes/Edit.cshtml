@@ -22,18 +22,41 @@
         <span asp-validation-for="Recipe.Description"></span>
         <input class="form-control" asp-for="Recipe.Description" value="@Model.Recipe.Description" />
         <br />
-        @for (int i = 0; i < Model.Recipe.Ingredients.Count; i++)
-        {
-            <h3>@Model.Recipe.Ingredients[i].Name</h3><a asp-page="/recipes/edit" asp-route-id="@Model.Recipe.Ingredients[i].Id" asp-route-recipeId="@Model.Recipe.Id" asp-page-handler="Delete">Delete</a>  <br>
-            <input type="hidden" asp-for="@Model.Recipe.Ingredients[i].Id" value="@Model.Recipe.Ingredients[i].Id" />
-            <input type="hidden" asp-for="@Model.Recipe.Ingredients[i].Name" value="@Model.Recipe.Ingredients[i].Name" />
-            <label asp-for="@Model.Recipe.Ingredients[i].Amount"></label><br />
-            <span asp-validation-for="@Model.Recipe.Ingredients[i].Amount"></span>
-            <input class="form-control" asp-for="@Model.Recipe.Ingredients[i].Amount" />
-            <label asp-for="@Model.Recipe.Ingredients[i].Unit"></label>
-            <select class="form-control" asp-for="@Model.Recipe.Ingredients[i].Unit" asp-items="Html.GetEnumSelectList<Unit>()"></select>
-            <br />
-        }
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Ingredient Name</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Recipe.Ingredients.Count; i++)
+                {
+                    <tr>
+                        <td>@Model.Recipe.Ingredients[i].Name</td>
+                        <td>
+                            <label asp-for="@Model.Recipe.Ingredients[i].Unit"></label>
+                            <select class="form-control" asp-for="@Model.Recipe.Ingredients[i].Unit" asp-items="Html.GetEnumSelectList<Unit>()"></select>
+                        </td>
+                        <td>
+                            <label asp-for="@Model.Recipe.Ingredients[i].Amount"></label>
+                            <br />
+                            <span asp-validation-for="@Model.Recipe.Ingredients[i].Amount"></span>
+                            <input class="form-control" asp-for="@Model.Recipe.Ingredients[i].Amount" />
+                        </td>
+                        <td>
+                            <a asp-page="/recipes/edit" asp-route-id="@Model.Recipe.Ingredients[i].Id" asp-route-recipeId="@Model.Recipe.Id" asp-page-handler="Delete">Delete</a>
+                            <br>
+                            <input type="hidden" asp-for="@Model.Recipe.Ingredients[i].Id" value="@Model.Recipe.Ingredients[i].Id" />
+                            <input type="hidden" asp-for="@Model.Recipe.Ingredients[i].Name" value="@Model.Recipe.Ingredients[i].Name" />
+                        </td>
+                    </tr>
+                    
+                }
+            </tbody>
+        </table>
+        
         <input type="submit" value="Edit" class="btn btn-secondary" />
     </form>
 </div>

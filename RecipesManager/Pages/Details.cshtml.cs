@@ -17,9 +17,14 @@ namespace RecipesManager.Pages
         {
             rr = new RecipeRepository();
         }
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
             Recipe = rr.GetRecipe(id);
+            if (Recipe == null)
+            {
+                return RedirectToPage("/Errors/default", new { errorCode = 500 });
+            }
+            return Page();
         }
     }
 }
