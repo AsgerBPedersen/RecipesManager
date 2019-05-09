@@ -1,0 +1,39 @@
+﻿@page
+@model RecipesManager.Pages.Ingredients.IndexModel
+@using Entities
+@{
+    ViewData["Title"] = "Ingredients";
+}
+
+<h1>Ingredients</h1>
+<div class="form-group">
+    <form method="post">
+        <label asp-for="Ingredient.Name"></label>
+        <input class="form-control" asp-for="Ingredient.Name" />
+        <label asp-for="Ingredient.Type"></label>
+        <select asp-for="Ingredient.Type" asp-items="Html.GetEnumSelectList<IngredientType>()"></select>
+        <input class="btn btn-secondary" type="submit" value="Add ingredient"/>
+    </form>
+</div>
+<table class="table-bordered col-6">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Ingredients)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Type.ToString()</td>
+                <td><a asp-page="/Ingredients/index" asp-route-id="@item.Id" asp-page-handler="delete">Delete</a> </td>
+                <td><a asp-page="/Ingredients/edit" asp-route-id="@item.Id">Edit</a></td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

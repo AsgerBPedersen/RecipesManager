@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipesManager", "RecipesManager\RecipesManager.csproj", "{8FEB9771-4CFD-4F5F-8FA6-92C1126E6802}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbAccess", "DbAccess\DbAccess.csproj", "{325F0631-F02C-4C07-846D-6C5DC083451E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{893F1287-F791-4E74-BC6D-841DC7278701}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{8FEB9771-4CFD-4F5F-8FA6-92C1126E6802}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FEB9771-4CFD-4F5F-8FA6-92C1126E6802}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FEB9771-4CFD-4F5F-8FA6-92C1126E6802}.Release|Any CPU.Build.0 = Release|Any CPU
+		{325F0631-F02C-4C07-846D-6C5DC083451E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{325F0631-F02C-4C07-846D-6C5DC083451E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{325F0631-F02C-4C07-846D-6C5DC083451E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{325F0631-F02C-4C07-846D-6C5DC083451E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{893F1287-F791-4E74-BC6D-841DC7278701}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{893F1287-F791-4E74-BC6D-841DC7278701}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{893F1287-F791-4E74-BC6D-841DC7278701}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{893F1287-F791-4E74-BC6D-841DC7278701}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

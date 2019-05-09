@@ -1,0 +1,41 @@
+﻿@page
+@model RecipesManager.Pages.Recipes.IndexModel
+@{
+    ViewData["Title"] = "Recipes";
+}
+
+<h1>Recipes</h1>
+<div class="form-group">
+    <form method="post">
+        <label asp-for="Recipe.Name"></label>
+        <input class="form-control" asp-for="Recipe.Name" />
+        <label asp-for="Recipe.Description"></label>
+        <input class="form-control" asp-for="Recipe.Description" />
+        <label asp-for="Recipe.Ingredients"></label>
+        <select class="form-control col-4" name="selectedIngredients" asp-items="@Model.Ingredients" multiple="multiple"></select>
+        <input class="btn btn-secondary" type="submit" value="Add recipe" />
+    </form>
+</div>
+<table class="table-bordered col-6">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Recipes)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td><a asp-page="/Recipes/index" asp-route-id="@item.Id" asp-page-handler="delete">Delete</a> </td>
+                <td><a asp-page="/Recipes/edit" asp-route-id="@item.Id">Edit</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,33 @@
+﻿@page
+@model RecipesManager.Pages.Recipes.EditModel
+@using Entities
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+<h1>Edit</h1>
+<div class="form-group">
+    <form method="post">
+        <input class="form-control" asp-for="Recipe.Id" type="hidden" value="@Model.Recipe.Id" />
+        <label asp-for="Recipe.Name"></label>
+        <input class="form-control" asp-for="Recipe.Name" value="@Model.Recipe.Name" />
+        <label asp-for="Recipe.Description"></label>
+        <input class="form-control" asp-for="Recipe.Description" value="@Model.Recipe.Description" />
+        <br />
+        @for(int i = 0; i < Model.Recipe.Ingredients.Count; i++)
+        {
+            <h3>@Model.Recipe.Ingredients[i].Name</h3><br>
+            <input type="hidden" asp-for="@Model.Recipe.Ingredients[i].Id" value="@Model.Recipe.Ingredients[i].Id"/>
+            <label asp-for="@Model.Recipe.Ingredients[i].Unit"></label>
+            <select class="form-control" asp-for="@Model.Recipe.Ingredients[i].Unit" asp-items="Html.GetEnumSelectList<Unit>()"></select>
+            <label asp-for="@Model.Recipe.Ingredients[i].Amount"></label>
+            <input class="form-control" asp-for="@Model.Recipe.Ingredients[i].Amount"/>
+            <br />
+        }
+        <input type="submit" value="Edit" class="btn btn-secondary" />
+    </form>
+</div>
+
+
+
